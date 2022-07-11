@@ -15,5 +15,7 @@ public class Main {
 
         double bmi = weight/(height*height);
         System.out.println(bmi);
+
+        Math.sqrt()
     }
 }
