@@ -1,0 +1,1 @@
+Các class và các object nên có tên là danh từ hoặc cụm danh từ như Customer, Account, Client,... Tránh cách từ như Manager, Processor, Data hoặc chứa thông tin trong tên của một class. Một tên class không nên là một động từ  
