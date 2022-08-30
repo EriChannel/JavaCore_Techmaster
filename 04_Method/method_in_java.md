@@ -41,4 +41,43 @@ Trong đó:
 - `returnType`: Kiểu dữ liệu trả về, phương thức có thể trả về một giá trị có kiểu dữ liệu nguyên thuỷ như (int, float, char, ...) hoặc kiểu dữ liệu tham chiếu (String,...). Trong trương hợp không trả về dữ liệu nào thì sử dụng `void` (Kiểu trả về của nó là rỗng)  
 - `nameOfMethod`: Tên của phương thức  
 - `parameters`: Các tham số là giá trị được truyền vào của một phương thức. 
-- `method body`: Phần thân của phương thức
+- `method body`: Phần thân của phương thức  
+
+## Phương thức static
+Khi bạn khai báo một phương thức là `static`, thì phương thức đó được gọi là phương thức `static`, hay phương thức tĩnh  
+- Một phương thức `static` thì thuộc một lớp chứ không thuộc đối tượng  
+- Có thể gọi phương thức `static` mà không cần phải tạo đối tượng  
+- Phương thức `static` có thể truy cập tới biến `static` và thay đổi giá trị của biến đó  
+
+Cú pháp:  
+
+```java
+<modifier> static <returnType> <nameOfMethod> (parameters){
+    //method body
+} 
+```
+
+## Nạp chồng phương thức  
+
+Nạp chồng phương thức (method overloading) xảy ra nếu trong cùng một lớp có nhiều phương thức có tên giống nhau nhưng khác nhau về tham số. Sự khác nhau về tham số thể hiện ở:  
+- Khác nhau về số lượng tham số   
+```java
+public static void sum(int x, int y){
+    System.out.println(x+y);
+}
+
+public static void sum (int x, int y, int z){
+    System.out.println(x+y+z);
+}
+```
+
+- Khác nhau về kiểu dữ liệu của tham số  
+```java
+public static void sum(int x, int y){
+    System.out.println(x+y);
+}
+
+public static void sum(float x, float y){
+    System.out.println(x+y);
+}
+```
