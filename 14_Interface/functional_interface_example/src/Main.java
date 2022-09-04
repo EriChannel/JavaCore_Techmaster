@@ -8,29 +8,31 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
+
 public class Main {
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<>();
         for(int i = 0; i <= 10; i++){
             list.add(i);
         }
-        list.forEach(new Consumer<Integer>() {
+        Consumer<Integer> consumer = new Consumer<Integer>() {
             @Override
-            public void accept(Integer i) {
-                System.out.println(i);
+            public void accept(Integer integer) {
+                System.out.print(integer +"\t");
             }
-        });
+        };
+        list.forEach(consumer);
+        System.out.println();
 
         list.removeIf(new Predicate<Integer>() {
             @Override
             public boolean test(Integer integer) {
-                return integer < 3;
+                return integer < 5;
             }
         });
         System.out.println(list);
 
-        Stream<Integer> stream = list.stream();
-        stream.map(new Function<Integer, Object>() {
+        list.stream().map(new Function<Integer, Object>() {
             @Override
             public Object apply(Integer integer) {
                 return integer * 10;
@@ -38,23 +40,29 @@ public class Main {
         }).forEach(new Consumer<Object>() {
             @Override
             public void accept(Object o) {
-                System.out.println(o);
+                System.out.print(o + "\t");
             }
         });
-
+        System.out.println();
         Random random = new Random();
-        Stream<Integer> stream1 = Stream.generate(new Supplier<Integer>() {
+        Stream<Integer> stream = Stream.generate(new Supplier<Integer>() {
             @Override
             public Integer get() {
-                return random.nextInt(10);
+                return random.nextInt(100);
             }
         }).limit(5);
 
-        stream1.forEach(new Consumer<Integer>() {
+        stream.forEach(new Consumer<Integer>() {
             @Override
             public void accept(Integer integer) {
-                System.out.println(integer);
+                System.out.print(integer + "\t");
             }
         });
+
+
+
+
     }
+
+
 }
