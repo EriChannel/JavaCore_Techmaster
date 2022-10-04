@@ -16,6 +16,19 @@ Ví dụ: Khi play nhạc, chúng ta vẫn có thể tương tác được với
 - Xử lý vấn đề về tranh chấp bộ nhớ, đồng bộ dữ liệu khá phức tạp.
 - Cần phát hiện tránh các luồng chết (dead lock), luồng chạy mà không làm gì trong ứng dụng cả.
 
+## Vòng đời (Các trạng thái) của Thread  
+
+![image](../image/multithread-lifecylce.jpg)
+
+Vòng đời của thread trong Java được kiểm soát bởi JVM. Java định nghĩa các trạng thái của luồng trong các thuộc tính static của lớp `Thread.State`  
+- `NEW`: Đây là khi luồng vừa được khởi tạo bằng phương thức khởi tạo của lớp `Thread` nhưng chưa được `start()`. Ở trạng thái này, luồng được tạo nhưng chưa được cấp phát tài nguyên và cũng chưa chạy. Nếu luồng đang ở trạng thái này mà ta gọi phương thức ép buộc như stop, resume, suspend,... sẽ sảy ra ngoại lệ `IllegalThreadStateException`  
+- `RUNNABLE`: Sau khi gọi phương thức `start()` thì luồng test đã được cấp phát tài nguyên và các lịch điều phối CPU cho luồng test cũng bắt đầu có hiệu lực. Ở đây, chúng ta dùng trạng thái Runnable chứ không phải running, vì luồng không thực sự luôn chạy mà tùy vào hệ thống mà có sự điều phối CPU khác nhau.  
+- `BLOCKED`: Đây là một dạng của trạng thái `Not Runnable`. Thread chờ một đối tượng bị lock bởi JVM monitor  
+- `WAITING`: Đây là một dạng của trạng thái `Not Runnable`. Thread đang chờ một notify từ một thread khác. Thread rơi vào trạng thái này do phương thức `wait()` hoặc `join()`  
+- `TIMED.WAITING`: Đây là một dạng của trạng thái `Not Runnable`. Thread đang chờ notify từ một thread khác trong một thời gian nhất định, Thread rơi vào trạng thái này do phương thức `wait(long timeout)` hoặc `join(long timeout)`  
+- `TERMINATED`: Thread đã hoàn thành công việc trong `run()` hoặc bị `stop()`
+
+
 
 ## Processes & threads
 | | Process | Thread | 
@@ -27,3 +40,4 @@ Ví dụ: Khi play nhạc, chúng ta vẫn có thể tương tác được với
 | Thành phần | Bao gồm: Không gian địa chỉ, biến global, xử lý tín hiệu, những tiến trình con, thông tin tính toán | Bao gồm: Thanh ghi, trạng thái, stack, bộ đếm chương trình | 
 | Điều khiển | Đa nhiệm dựa trên process không thuộc quyền kiểm soát của Java | Đa nhiệm dựa trên thread phụ thuộc kiềm quyển soát Java | 
 | Ví dụ | Khi chạy một ứng dụng Java thì đó được gọi là một tiến trình | Một ứng dụng đếm từ trong 1000 file, có sử dụng 4 luồng để chạy đồng thời |
+
