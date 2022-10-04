@@ -1,6 +1,5 @@
 package org.example;
 
-import com.opencsv.CSVReader;
 import com.opencsv.bean.CsvBindByName;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,9 +11,8 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Person {
-
-    @CsvBindByName
-    private String name;
+    @CsvBindByName(column = "name")
+    private String fullName;
 
     @CsvBindByName
     private String email;
@@ -24,6 +22,4 @@ public class Person {
 
     @CsvBindByName
     private String address;
-
-
 }

@@ -1,39 +1,39 @@
-import java.util.Arrays;
+import java.util.Optional;
 
 public class Main {
+
     public static void main(String[] args) {
-//        IGamer gamer = new ItStudent();
-//        gamer.playGame();
-//        gamer.sleep("no sleep :)");
+        Optional<String> emptyOptional = Optional.empty();
+
+        Optional<String> optional = Optional.of("Java");
+
+        Optional<String> isNullable = Optional.ofNullable("not null");
+
+//        boolean isPresent = emptyOptional.isPresent();
+//        System.out.println(isPresent);
 //
-//        ICoder coder = new ItStudent();
-//        coder.code();
-//        coder.sleep("I work on morning and sleep in the evening");
-//
-//        IHacker hacker = new ItStudent();
-//        hacker.hackFacebook();
-//        hacker.sleep("I work on evening and sleep in the morning");
+//        isPresent = optional.isPresent();
+//        System.out.println(isPresent);
+        if(isNullable.isPresent()){
+            String result = isNullable.get();
+            System.out.println(result);
+        }
 
-//        int[] intArray = {5,3,9,10,2,1};
-//        int[] arrayCopy = Arrays.copyOf(intArray, 6);
-//        int[] arr = {1,2,3,4,5,6};
-//
-//        System.out.println(Arrays.equals(intArray, arrayCopy));
-//        System.out.println(Arrays.equals(intArray, arr));
+        isNullable.ifPresent(s -> System.out.println(s.length()));
 
-//        Arrays.fill(intArray, 0);
-//        System.out.println(Arrays.toString(intArray));
+        emptyOptional.ifPresent(s -> System.out.println(s.length()));
 
-//        Arrays.sort(intArray);
-//
-//        int findIdx = Arrays.binarySearch(intArray, 10);
-//        System.out.println(findIdx);
+        String nullName = null;
+        String name = Optional.ofNullable(nullName).orElse("Anna");
+        System.out.println(name);
 
-        int[][] arr1 = {{1,2,3},{4,5,6},{7,8,9}};
-        int[][] arr2 = {{1,2,3},{4,5,6}};
-        int[][] arr3 = Arrays.copyOf(arr1, 3);
+        String name2 = Optional.ofNullable(nullName).orElseGet(() -> "Chris");
+        System.out.println(name2);
 
-        System.out.println(Arrays.deepEquals(arr1, arr2));
-        System.out.println(Arrays.deepEquals(arr1, arr3));
+        boolean isPresent = optional.filter(s ->s.equals("Java")).isPresent();
+        System.out.println(isPresent);
+
+        isPresent = optional.filter(s ->s.equals("java")).isPresent();
+        System.out.println(isPresent);
     }
 }

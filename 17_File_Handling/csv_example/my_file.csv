@@ -1,8 +1,6 @@
-name, rollno, department, result, cgpa
-amar, 42, cse, pass, 8.6
-rohini, 21, ece, fail, 3.2
-aman, 23, cse, pass, 8.9
-rahul, 45, ee, fail, 4.6
-pratik, 65, cse, pass, 7.2
-raunak, 23, me, pass, 9.1
-suvam, 68, me, pass, 8.2
+ADDRESS,EMAIL,MOBILE,NAME
+Philippines,cbushen0@utexas.edu,602-338-7482,Cullan Bushen
+Mexico,tknagges1@yellowpages.com,269-891-7180,Tasia Knagges
+Russia,rfleeming2@yale.edu,658-440-8475,Rupert Fleeming
+Indonesia,bhughs3@abc.net.au,968-924-5194,Brian Hughs
+Mongolia,fwardle4@irs.gov,948-843-8286,Felizio Wardle
