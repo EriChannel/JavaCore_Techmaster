@@ -13,6 +13,31 @@ public class Main {
 
         print(list);
 
+        Comparator<Person> comparator = new Comparator<Person>() {
+            @Override
+            public int compare(Person o1, Person o2) {
+                return o1.getAge() - o2.getAge();
+            }
+        };
+        Collections.sort(list, comparator);
+
+        System.out.println("Danh sách sau khi sắp xếp: ");
+        print(list);
+
+        Collections.sort(list, new Comparator<Person>() {
+            @Override
+            public int compare(Person o1, Person o2) {
+                int result = o1.getAge() - o2.getAge();
+                if(result == 0 ){
+                    return o1.getName().compareTo(o2.getName());
+                }
+                return result;
+            }
+        });
+
+        System.out.println("Danh sách sắp xếp theo tên và tuổi: ");
+        print(list);
+
     }
 
     public static void print(ArrayList<Person> list){
