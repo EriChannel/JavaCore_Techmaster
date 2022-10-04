@@ -1,25 +1,31 @@
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
-        String fileName = "MyFile.txt";
-//        FileReader reader = new FileReader(fileName);
-//        try {
-//            int i;
-//            while ((i = reader.read()) != -1){
-//                System.out.println((char)i);
-//            }
-//        }finally {
-//            reader.close();
-//        }
-        FileWriter writer = new FileWriter(fileName);
+    public static void main(String[] args)  {
         try {
-            writer.write("Welcome");
-        }finally {
+            FileWriter writer = new FileWriter("Data.txt", true);
+
+            writer.write("Học java");
             writer.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void readFile(){
+        String fileName = "MyFile.txt";
+        File file = new File(fileName);
+        try {
+            FileReader reader = new FileReader(file);
+            int i;
+            while ((i = reader.read()) != -1){
+                System.out.print((char)i);
+            }
+            reader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Không tìm thấy file!!!");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
