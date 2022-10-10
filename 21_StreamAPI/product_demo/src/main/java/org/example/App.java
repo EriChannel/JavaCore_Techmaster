@@ -15,16 +15,8 @@ import java.util.List;
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
-        ProductServiceImpl service = new ProductServiceImpl();
-        List<Product> products = service.getAllProducts();
-
-        List<Product> listByCategory = service.getProductByCategory(products, Category.LAPTOP);
-        listByCategory.forEach(System.out::println);
-        System.out.println("\n--------------------------------\n");
-        List<Product> sortPrice = service.sortProductByPrice(products);
-        sortPrice.forEach(System.out::println);
+    public static void main(String[] args) {
+        
 
     }
 }
