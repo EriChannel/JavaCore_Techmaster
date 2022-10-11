@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AccountRepository {
-    public List<Account> getAllAccount(){
+    public List<Account> getAllAcounts(){
         List<Account> accounts = new ArrayList<>();
         accounts.add(new Account("ngoc", "ngoc@gmail.com", "123456789", LocalDate.now()));
         accounts.add(new Account("hoang", "hoang@gmail.com", "123456789", LocalDate.now()));

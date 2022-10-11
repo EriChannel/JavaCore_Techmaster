@@ -1,10 +1,8 @@
 package utils;
 
 import java.util.Random;
-import java.util.UUID;
 
 public class Util {
-
     private static final String alpha = "abcdefghijklmnopqrstuvwxyz"; // a-z
     private static final String alphaUpperCase = alpha.toUpperCase(); // A-Z
     private static final String digits = "0123456789"; // 0-9
@@ -25,6 +23,4 @@ public class Util {
         }
         return sb.toString();
     }
-
-
 }

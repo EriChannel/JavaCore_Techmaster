@@ -4,9 +4,9 @@ import model.Account;
 
 public interface AccountService {
 
+    Account checkLogin(String email, String password);
+
     boolean addNewAccount(Account account);
 
-    Account login(String email, String password);
-
-    void updatePassword(String email, String password);
+    void updatePassword(String email, String newPassword);
 }
