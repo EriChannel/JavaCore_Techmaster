@@ -3,7 +3,7 @@ package org.example.model;
 public enum Category {
     PHONE ("Điện thoại"),
     LAPTOP ("Laptop"),
-    TABLET("Máy tính bảng"),
+    TABLET ("Máy tính bảng"),
     APPLE ("Apple"),
     ACCESSORY ("Phụ kiện");
 

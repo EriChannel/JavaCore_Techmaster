@@ -1,13 +1,9 @@
 package org.example;
 
-import org.example.model.Category;
-import org.example.model.Product;
-import org.example.service.FileProduct;
-import org.example.service.ProductService;
+import org.example.controller.Controller;
 import org.example.service.ProductServiceImpl;
 
-import java.io.IOException;
-import java.util.List;
+import java.sql.Connection;
 
 /**
  * Hello world!
@@ -15,8 +11,9 @@ import java.util.List;
  */
 public class App 
 {
-    public static void main(String[] args) {
-
-
+    public static void main( String[] args )
+    {
+        Controller controller = new Controller();
+        controller.main();
     }
 }

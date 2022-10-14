@@ -6,24 +6,24 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.util.Util;
 
-import java.util.Arrays;
-
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
 @Getter
+@Setter
 public class Product {
     private int id;
     private String name;
     private String description;
-    private Category[] category;
+    private String color;
+    private Category[] categories;
     private String brand;
     private long price;
     private Status status;
 
     @Override
     public String toString() {
-        return id + " - " + name + " - " + description + " - " + Util.printCategory(category) +
-                " - " + brand + " - " + Util.formatPrice(price) +" - " + status.getValue();
+        return id + " - " + name + " - " + description + " - " + color + " - " +
+                Util.printCategory(categories) + " - " + brand + " - " +
+                Util.formatPrice(price) +" - " + status.getValue();
     }
 }

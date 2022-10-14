@@ -4,14 +4,23 @@ import org.example.model.Category;
 import org.example.model.Product;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ProductService {
 
-    List<Product> getProductByName(List<Product> list, String name);
+    void print();
 
-    List<Product> getProductByCategory(List<Product> list, Category category);
+    List<Product> getProductsByName(String name);
 
-    List<Product> getProductsByPrice(List<Product> list, long firstPrice, long endPrice);
+    List<Product> getProductsByCategory(Category category);
 
-    List<Product> sortProductByPrice(List<Product> list);
+    List<Product> getProductsByPrice(long startPrice, long endPrice);
+
+    Map<Category, Integer>  countProductByCategory();
+
+    void sortProductByPriceIncrease();
+
+    void sortProductByPriceDecrease();
+
+    List<Product> getProductsByBrand(String brand);
 }

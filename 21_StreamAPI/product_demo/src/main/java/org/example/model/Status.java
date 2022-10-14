@@ -2,10 +2,9 @@ package org.example.model;
 
 public enum Status {
     STOCKING ("Còn hàng"),
+    DISCONTINUES ("Ngừng kinh doanh"),
     SOLD_OUT ("Tạm hết hàng"),
-    DISCONTINUES ("Sản phẩm ngừng kinh doanh"),
     PRE_ORDER ("Đặt trước");
-
 
     private String value;
 
